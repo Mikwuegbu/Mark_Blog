@@ -8,7 +8,7 @@ function BlogList({ blogs, title, handleDelete }) {
                 <div className="blog-preview" key={blogs.id}>
                     <h2>{blogs.title} </h2>
                     <p>This was written by {blogs.author}</p>
-                    <button onClick={() => handleDelete(blogs.id)}>Delete blog</button>
+
                 </div>
             ))
             }
