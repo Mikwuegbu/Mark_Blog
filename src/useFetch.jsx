@@ -2,15 +2,20 @@ import { useState, useEffect } from 'react'
 
 const useFetch = (url) => {
 
-    //making a custom hook
+    // making a custom hook for reusability
 
     const [data, setBlog] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+
+        // Implementing a Clean up code to handle Unmounted Error
+
+        const abortCont = new AbortController();
+
         setTimeout(() => {
-            fetch(url)
+            fetch(url, { signal: abortCont.signal })
                 .then(res => {
                     if (!res.ok) {
                         throw Error('Sorry! We couldn\'t find the resources')
@@ -23,10 +28,15 @@ const useFetch = (url) => {
                     setError(null);
                 })
                 .catch(err => {
-                    setError(err.message);
-                    setIsLoading(false);
+                    if (err.name === 'AbortError') {
+                        console.log('fetch Aborted')
+                    } else {
+                        setError(err.message);
+                        setIsLoading(false);
+                    }
                 });
         }, 200);
+        return () => console.log('Clean Up!');
     }, [url]);
 
     return { data, isLoading, error }
