@@ -1,5 +1,6 @@
 function BlogList({ blogs, title, handleDelete }) {
 
+    //outputting a List using map();
 
     return (
         <div className="blog-lists">
