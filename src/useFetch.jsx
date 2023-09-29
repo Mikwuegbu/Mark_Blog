@@ -10,12 +10,8 @@ const useFetch = (url) => {
 
     useEffect(() => {
 
-        // Implementing a Clean up code to handle Unmounted Error
-
-        const abortCont = new AbortController();
-
         setTimeout(() => {
-            fetch(url, { signal: abortCont.signal })
+            fetch(url)
                 .then(res => {
                     if (!res.ok) {
                         throw Error('Sorry! We couldn\'t find the resources')
@@ -28,15 +24,10 @@ const useFetch = (url) => {
                     setError(null);
                 })
                 .catch(err => {
-                    if (err.name === 'AbortError') {
-                        console.log('fetch Aborted')
-                    } else {
-                        setError(err.message);
-                        setIsLoading(false);
-                    }
+                    setError(err.message);
+                    setIsLoading(false);
                 });
         }, 200);
-        return () => console.log('Clean Up!');
     }, [url]);
 
     return { data, isLoading, error }
