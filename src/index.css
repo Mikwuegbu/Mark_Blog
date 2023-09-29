@@ -76,6 +76,19 @@
   text-align: justify;
 }
 
+.blog-details button {
+  background: #dc1818;
+  color: #ffffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blog-details button:hover {
+  background: #dc1818d4;
+}
+
 /* create a new blog form  */
 .create label {
   text-align: left;
