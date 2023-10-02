@@ -29,9 +29,9 @@ function Create() {
         <div className='create'>
             <h1>Add a new Blog</h1>
             <form onSubmit={handleSubmit}>
-                <label >Blog title:</label>
+                <label >Blog Title:</label>
                 <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Blog title" />
-                <label >Blog body</label>
+                <label >Blog Body</label>
                 <textarea required value={body} onChange={(e) => setBody(e.target.value)} placeholder="Blog content..."></textarea>
                 <label>Blog Author:</label>
                 <select value={author} onChange={(e) => setAuthor(e.target.value)}>

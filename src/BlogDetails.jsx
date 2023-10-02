@@ -1,4 +1,4 @@
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetch from './useFetch';
 //demostrating  route parameter (Dynamic routing)
 
@@ -25,7 +25,10 @@ export const BlogDetails = () => {
                     <h2>{blogs.title}</h2>
                     <p>Written by {blogs.author}</p>
                     <div>{blogs.body}</div>
-                    <button onClick={handleDelete}>Delete</button>
+                    <div className="blog-details-container">
+                        <button className="delete" onClick={handleDelete}>Delete</button>
+                        <Link className="editBlog" to="/editblog" >Edit</Link>
+                    </div>
                 </article>
             )}
 

@@ -76,17 +76,39 @@
   text-align: justify;
 }
 
-.blog-details button {
+.blog-details-container {
+  display: flex;
+}
+
+
+
+.blog-details .delete {
   background: #dc1818;
   color: #ffffff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-.blog-details button:hover {
-  background: #dc1818d4;
+.blog-details .editBlog {
+  background: #04449e;
+  color: #ffffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.blog-details .delete:hover {
+  background: #dc1818b0;
+}
+
+.blog-details .editBlog:hover {
+  background: #04449eb7;
 }
 
 /* create a new blog form  */
@@ -122,5 +144,41 @@
 }
 
 .create button:hover {
+  background: #04449ec8;
+}
+
+/* edit an old blog form  */
+.editblog label {
+  text-align: left;
+  display: block;
+}
+
+.create h1 {
+  font-size: 30px;
+  color: #04449e;
+  margin-bottom: 30px;
+}
+
+.editblog input,
+.editblog textarea,
+.editblog select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #d2d4d6;
+  box-sizing: border-box;
+  display: block;
+}
+
+.editblog button {
+  background: #04449e;
+  color: #fefeff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.editblog button:hover {
   background: #04449ec8;
 }
